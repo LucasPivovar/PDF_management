@@ -14,7 +14,7 @@
       <div class="upload-box" @click="triggerFileInput">
         <div id="upload-box">
           <i class="upload-icon"><img src="../assets/upload.svg" alt="upload" width="80px" height="80px"></i>
-          <h3>Faça upload dos currículos</h3>
+          <h3>Arraste e solte os curriculos aqui</h3>
           <p>Suporte para PDF, DOC, DOCX (até 100 arquivos)</p>
           <button class="upload-button">
             <img src="../assets/file.svg" alt="upload" width="15px" height="30px" background-color="transparent"> 
@@ -103,17 +103,15 @@ export default {
 
       this.timeoutAlerta = setTimeout(() => {
         this.alertaAtivo = false;
-      }, 2500);
+      }, 4000);
     }
   }
 }
 </script>
 
 <style scoped>
-template{
-  font-family: "Roboto", sans-serif;
-
-}
+  /* Responsive styles */
+  /* Parte do upload */
 .upload-view {
   display: flex;
   flex-direction: column;
@@ -124,19 +122,6 @@ template{
   margin-right: auto;
 }
 
-#next_btn {
-  background-color: #07721ead;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  transition: background-color 0.3s;
-  width: 140px;
-  margin-left: auto;
-  margin-right: 400px;
-  font-weight: bold;
-  font-size: 1.1rem;
-}
 
 .upload-area {
   width: 60%;
@@ -265,15 +250,6 @@ template{
   gap: 1rem;
 }
 
-.actions {
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  left: 18rem;
-  padding-bottom: 15px;
-}
-
 .clear-button {
   background-color: transparent;
   color: #cc0000;
@@ -319,8 +295,153 @@ template{
   transform: translateX(0);
 }
 
+.actions {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 15px;
+  margin-left: auto;
+}
+
+#next_btn {
+  background-color: #07721ead;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  width: 140px;
+  margin-left: auto;
+  margin-right: 120px;
+  font-weight: bold;
+  font-size: 1.1rem;
+
+}
+
 .alerta_mensagem {
   margin: 0;
+}
+
+@media screen and (max-width: 768px) {
+
+  /* Responsive styles */
+  /* Parte do upload */
+  template{
+    font-family: "Roboto", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+
+  .upload-view {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    width: 100%;
+  }
+
+  .upload-area {
+    width: 100%;
+    text-align: left;
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 0;
+  }   
+
+  .file-input {
+    display: none;
+  }
+
+  #upload-box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .upload-box {
+    border: 2px dashed #9cdf9e;
+    border-radius: 8px;
+    padding: 40px;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  .upload-box h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0;
+    margin-top: 0;
+    font-family: "Roboto", sans-serif;
+
+    font-weight: 600;
+  }
+
+  .upload-box p {
+    font-size: 1rem;
+    margin-top: 0;
+    
+    font-weight: 500;
+    color: #7c7c7c;
+    font-family: "Roboto", sans-serif;
+
+  }
+
+  .upload-button {
+    align-items: left;
+    font-weight: 500;
+  }
+
+  .actions {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+
+  }
+
+  #next_btn {
+    background-color: #07721ead;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    width: 140px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-left: auto;
+    margin-right: 0;
+  }
+
+  .file-list li {
+    margin-top: 0.5rem;
+  }
+
+  .clear-button {
+    margin-left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 @keyframes fadeInDown {
